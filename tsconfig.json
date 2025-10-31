@@ -1,0 +1,8 @@
+// See https://wxt.dev/api/config.html
+{
+  "extends": "./.wxt/tsconfig.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "jsx": "react-jsx"
+  }
+}

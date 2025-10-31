@@ -1,0 +1,29 @@
+{
+  "name": "dictionary-extension",
+  "version": "1.0.0",
+  "description": "an extension help user quick translate and save to review",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "wxt",
+    "dev:chrome": "wxt -b chrome",
+    "dev:firefox": "wxt -b firefox",
+    "dev:edge": "wxt -b edge",
+    "dev:all": "concurrently \"npm run dev:chrome\" \"npm run dev:firefox\" \"npm run dev:edge\"",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "build:chrome": "wxt build -b chrome",
+    "build:edge": "wxt build -b edge",
+    "zip": "wxt zip",
+    "zip:firefox": "wxt zip -b firefox",
+    "postinstall": "wxt prepare"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "wxt": "^0.20.11"
+  },
+  "dependencies": {
+    "@wxt-dev/module-react": "^1.1.5"
+  }
+}

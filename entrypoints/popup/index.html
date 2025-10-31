@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ đã lưu</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>📚 Từ đã lưu</h1>
+            <div class="header-actions">
+                <button id="clear-all-btn" class="btn-danger">🗑️ Xóa tất cả</button>
+            </div>
+        </header>
+        
+        <div id="stats">
+            <span id="word-count">0 từ</span>
+        </div>
+        
+        <div id="search-box">
+            <input type="text" id="search-input" placeholder="🔍 Tìm kiếm từ..." />
+        </div>
+        
+        <div id="word-list"></div>
+        
+        <div id="empty-state" style="display: none;">
+            <p>📝 Chưa có từ nào được lưu</p>
+            <p class="hint">Quét văn bản và click "Lưu từ" để thêm vào danh sách!</p>
+        </div>
+    </div>
+    
+    <script src="./main.ts" type="module"></script>
+</body>
+</html>
