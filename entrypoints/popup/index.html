@@ -3,34 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Từ đã lưu</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Word Count</title>
 </head>
 <body>
+    <script type="module" src="./main.ts"></script>
+    
     <div id="app">
         <header>
-            <h1>📚 Từ đã lưu</h1>
+            <h1>Từ đã lưu</h1>
             <div class="header-actions">
-                <button id="clear-all-btn" class="btn-danger">🗑️ Xóa tất cả</button>
+                <button id="clear-all-btn" class="btn-danger gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg> Xóa tất cả</button>
             </div>
         </header>
         
         <div id="stats">
-            <span id="word-count">0 từ</span>
+            <span id="word-count">0</span> words
         </div>
+        <section id="today-progress">
+            <div>Hôm nay bạn đã tra cứu</div>
+
+            <div class="progress-wrap" id="today-progress-circle">
+                <svg class="progress-ring" width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">
+                    <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                    <circle class="ring-progress ring-red" cx="60" cy="60" r="52"></circle>
+                    <circle class="ring-progress ring-orange" cx="60" cy="60" r="52"></circle>
+                    <circle class="ring-progress ring-yellow" cx="60" cy="60" r="52"></circle>
+                    <circle class="ring-progress ring-green" cx="60" cy="60" r="52"></circle>
+                </svg>
+                <div id="word-today">0</div>
+            </div>
+
+            <div >
+                <button id="review-btn">Ôn tập</button>
+            </div>
+        </section>
         
-        <div id="search-box">
-            <input type="text" id="search-input" placeholder="🔍 Tìm kiếm từ..." />
-        </div>
-        
-        <div id="word-list"></div>
-        
-        <div id="empty-state" style="display: none;">
-            <p>📝 Chưa có từ nào được lưu</p>
-            <p class="hint">Quét văn bản và click "Lưu từ" để thêm vào danh sách!</p>
-        </div>
     </div>
-    
-    <script src="./main.ts" type="module"></script>
+   
 </body>
 </html>

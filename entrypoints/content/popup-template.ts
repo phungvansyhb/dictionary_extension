@@ -1,6 +1,7 @@
 // HTML template cho popup
 
 import switchIcon from '~/assets/switch.svg';
+import saveIcon from '~/assets/save.svg';
 import copyIcon from '~/assets/copy.svg';
 
 /**
@@ -174,9 +175,16 @@ export function getPopupTemplate(): string {
           transition: all 0.2s;
           font-size: 13px;
         ">
-          <span style="margin-right: 6px; font-size: 16px;">📚</span>
+           <img src="${saveIcon}" alt="save" style="
+            width: 16px; 
+            height: 16px;
+            filter: brightness(0) invert(1);
+            pointer-events: none;
+            margin-right: 6px;
+          " />
           Lưu từ
         </button>
+      
       </div>
     </div>
   `;

@@ -3,8 +3,9 @@
 import { translateText, getPhonetic, isEnglishWord } from './translator';
 import { calculatePopupPosition, POPUP_STYLES } from './popup-utils';
 import { getPopupTemplate, applyButtonEffects, applySelectEffects } from './popup-template';
-import { saveWord, isWordSaved } from './storage';
+import { saveWord, isWordSaved } from './storageService';
 import type { LanguageCode, PhoneticInfo } from './types';
+import { browser } from 'wxt/browser';
 
 export class TranslationPopup {
   private popup: HTMLDivElement | null = null;
@@ -48,6 +49,10 @@ export class TranslationPopup {
     // Event: Lưu từ
     const saveBtn = this.popup.querySelector('#save-word-btn');
     saveBtn?.addEventListener('click', () => this.handleSaveWord());
+
+    // Event: Xem từ đã lưu
+    const viewSavedBtn = this.popup.querySelector('#view-saved-btn');
+    viewSavedBtn?.addEventListener('click', () => this.handleViewSaved());
 
     // Event: Thay đổi ngôn ngữ đích
     const langSelect = this.popup.querySelector('#target-language') as HTMLSelectElement;
@@ -110,6 +115,21 @@ export class TranslationPopup {
           saveBtn.innerHTML = originalHTML;
         }, 2000);
       }
+    }
+  }
+
+  /**
+   * Handle view saved words button click - Mở trang mới để xem từ đã lưu
+   */
+  private async handleViewSaved(): Promise<void> {
+    // Mở new tab page để xem từ đã lưu
+    try {
+      const extensionUrl = browser.runtime.getURL('');
+      await browser.tabs.create({
+        url: extensionUrl + 'newtab.html'
+      });
+    } catch (error) {
+      console.error('Error opening saved words page:', error);
     }
   }
 

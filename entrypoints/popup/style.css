@@ -5,16 +5,16 @@
 }
 
 body {
-  width: 600px;
-  min-height: 400px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 300px;
+  height: 240px;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #333;
+  color: #000000;
 }
 
 #app {
   background: white;
-  min-height: 400px;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
 }
@@ -22,14 +22,14 @@ body {
 header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 20px;
+  padding: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 header h1 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -46,8 +46,13 @@ button {
   cursor: pointer;
   transition: all 0.2s;
   font-size: 13px;
+  display: inline-flex;
+  align-items: center;
 }
 
+.gap-2 {
+  gap: 8px;
+}
 .btn-danger {
   background: rgba(255, 255, 255, 0.2);
   color: white;
@@ -58,138 +63,15 @@ button {
 }
 
 #stats {
+  text-align: center;
   padding: 12px 20px;
-  background: #f5f5f5;
   border-bottom: 1px solid #ddd;
-  font-size: 14px;
-  color: #666;
 }
-
-#search-box {
-  padding: 15px 20px;
-  background: white;
-  border-bottom: 1px solid #eee;
+#word-count {
+  font-weight: 700;
+  font-size: 56px;
+  color: black;
 }
-
-#search-input {
-  width: 100%;
-  padding: 10px 15px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-#search-input:focus {
-  border-color: #667eea;
-}
-
-#word-list {
-  flex: 1;
-  overflow-y: auto;
-  padding: 10px;
-}
-
-.word-card {
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 10px;
-  transition: all 0.2s;
-}
-
-.word-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
-}
-
-.word-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  margin-bottom: 10px;
-}
-
-.word-title {
-  flex: 1;
-}
-
-.word-text {
-  font-size: 20px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 5px;
-}
-
-.word-phonetic {
-  font-size: 14px;
-  color: #667eea;
-  font-style: italic;
-}
-
-.word-actions {
-  display: flex;
-  gap: 8px;
-}
-
-.btn-small {
-  padding: 6px 12px;
-  font-size: 12px;
-  background: #f5f5f5;
-  color: #666;
-}
-
-.btn-small:hover {
-  background: #667eea;
-  color: white;
-}
-
-.btn-delete {
-  background: #ffebee;
-  color: #f44336;
-}
-
-.btn-delete:hover {
-  background: #f44336;
-  color: white;
-}
-
-.word-translation {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 8px;
-  padding: 8px 12px;
-  background: #f8f9fa;
-  border-radius: 6px;
-}
-
-.word-meta {
-  font-size: 12px;
-  color: #999;
-  display: flex;
-  gap: 15px;
-}
-
-.word-meanings {
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
-  font-size: 13px;
-  color: #666;
-}
-
-.meaning-item {
-  margin-bottom: 8px;
-}
-
-.part-of-speech {
-  font-style: italic;
-  color: #667eea;
-  font-weight: 600;
-}
-
 #empty-state {
   flex: 1;
   display: flex;
@@ -208,4 +90,80 @@ button {
 #empty-state .hint {
   font-size: 14px;
   color: #bbb;
+}
+
+#today-progress {
+  text-align: center;
+  padding: 12px 20px;
+}
+
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 12px 0;
+  position: relative;
+}
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.ring-progress {
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.ring-red {
+  stroke: #ef4444;
+}
+
+.ring-orange {
+  stroke: #f97316;
+}
+
+.ring-yellow {
+  stroke: #eab308;
+}
+
+.ring-green {
+  stroke: #22c55e;
+}
+.progress-ring circle {
+  fill: transparent;
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+.ring-bg {
+  stroke: #eee;
+}
+.ring-progress {
+  transition: stroke-dashoffset 600ms ease;
+}
+.progress-label {
+  font-size: 14px;
+  transform: rotate(90deg); /* keep text upright due to svg rotation */
+}
+.progress-done .ring-progress {
+  stroke: #1e88e5;
+}
+
+#word-today {
+  font-weight: 600;
+  font-size: 48px;
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#review-btn{
+  margin-top: 8px;
+  padding: 10px 20px;
+  background-color: #4c7aaf;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }
